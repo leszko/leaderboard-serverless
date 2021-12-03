@@ -2,6 +2,7 @@ package handler
 
 import (
 	"encoding/json"
+	"fmt"
 	"math"
 	"net/http"
 	"strconv"
@@ -15,6 +16,7 @@ import (
 
 // AggregatedStatsHandler handles an aggregated leaderboard stats request
 func AggregatedStatsHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("Starting")
 	if err := db.CacheDB(); err != nil {
 		common.HandleInternalError(w, err)
 		return
